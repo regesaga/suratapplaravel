@@ -12,7 +12,8 @@
 	<link rel="stylesheet" href="{{asset('assets/css/feathericon.min.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-	<link rel="stylesheet" href="../../../releases/v5.8.2/css/all.css"> </head>
+	{{-- <link rel="stylesheet" href="../../../releases/v5.8.2/css/all.css"> --}}
+</head>
 <body>
 	<div class="main-wrapper">
 		<div class="header">
@@ -95,7 +96,14 @@
 								<h6>Soeng Souy</h6>
 								<p class="text-muted mb-0">Administrator</p>
 							</div>
-						</div> <a class="dropdown-item" href="profile.html">My Profile</a> <a class="dropdown-item" href="settings.html">Account Settings</a> <a class="dropdown-item" href="{{route('logout.user')}}">Logout</a> </div>
+						</div> 
+						<a class="dropdown-item" href="profile.html">My Profile</a> 
+						<a class="dropdown-item" href="settings.html">Account Settings</a> 
+						<form action="{{route('logout.user')}}" method="POST">
+							@csrf
+							@method('GET')
+							<button type="submit" class="dropdown-item">Logout</button>
+						</form>
 				</li>
 			</ul>
 		</div>
@@ -119,6 +127,7 @@
         
 	</div>
 
+    @include('sweetalert::alert')
 
 	<script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 	<script src="{{asset('assets/js/popper.min.js')}}"></script>

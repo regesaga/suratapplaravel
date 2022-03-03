@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 |
 */
 Route::get('/user/logout', [UserController::Class, 'logout'])->name('logout.user');
+
 Route::get('/', function () {
     return view('welcome');
 });
