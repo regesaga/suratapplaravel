@@ -33,11 +33,17 @@
 								<div class="form-group">
 									<button class="btn btn-primary btn-block" type="submit">Login</button>
 								</div>
+								
 							</form>
-						{{--<div class="text-center forgotpass"><a href="forgot-password.html">Forgot Password?</a> </div>
+							
+						<div class="text-center forgotpass">
+							@if (Route::has('password.request'))
+							<a href="{{ route('password.request') }}">Forgot Password?</a> 
+							@endif
+						</div>
 							<div class="login-or"> <span class="or-line"></span> <span class="span-or">or</span> </div>
 							<div class="social-login"> <span>Login with</span> <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a><a href="#" class="google"><i class="fab fa-google"></i></a> </div>
-							<div class="text-center dont-have">Don’t have an account? <a href="register.html">Register</a></div>--}}
+							<div class="text-center dont-have">Don’t have an account? <a href="{{ route('register') }}">Register</a></div>
 						</div>
 					</div>
 				</div>
