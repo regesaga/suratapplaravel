@@ -12,14 +12,21 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/user/logout', [UserController::Class, 'logout'])->name('logout.user');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'back-history'], function(){
+    Route::get('/user/logout', [UserController::Class, 'destroy'])->name('logout.user');
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware( ['auth'])->name('dashboard');
+
+    require __DIR__.'/auth.php';
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+
