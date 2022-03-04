@@ -51,7 +51,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        Alert::success('Succes Title', 'Anda Berhasil Logout');
 
 
         return redirect('/');
